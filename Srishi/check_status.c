@@ -1,52 +1,26 @@
-#include <stdio.h>
-#include <string.h>
+//test comment
 
-#define TOTAL_SEATS 10  // Total seats in bus
+#include<stdio.h>
 
-// Structure banaya seat details store karne ke liye
-typedef struct {
-    int seatNo;
-    char name[50];
-    int booked;
-} Seat;
-
-Seat bus[TOTAL_SEATS];
-
-// Bus seats ko initialize karega
-void initializeBus() {
-    for (int i = 0; i < TOTAL_SEATS; i++) {
-        bus[i].seatNo = i + 1;
-        bus[i].booked = 0;  // 0 means seat available
-        strcpy(bus[i].name, "Not Booked");  // Default status
-    }
+int main ()
+{
+    checkstatus(); // calling
 }
+void checkstatus(){
+    printf("\nseat status: \n");// ye seat status ka header print karta hai
+    printf("seat No | status | pessenge Name\n"); // ye line format me print hoga 
 
-// Bus ka seat status show karega
-void showStatus() {
-    printf("\nBus Seat Status:\n");
-    printf("Seat No.\tStatus\t\tPassenger Name\n");
-    for (int i = 0; i < TOTAL_SEATS; i++) {
-        printf("%d\t\t%s\t\t%s\n", bus[i].seatNo, 
-               bus[i].booked ? "Booked" : "Available", 
-               bus[i].booked ? bus[i].name : "N/A");
-    }
-}
+    printf("-------------------------\n"); // ye ek separator line -------------- print karta hai table ko clean dikhane ke liye 
+    for  (int i =0; <MAX SEATS; i++) // ye loop chal rha hai jo 0 se lekar MAX_SEATS -1 tak jayega, ye har ek seat ka status cheak krega 
 
-// Main function
-int main() {
-    initializeBus();  // Bus ko initialize karenge
-    
-    // Kuch seats manually book kar rahe hain (Demo ke liye)
-    bus[2].booked = 1;
-    strcpy(bus[2].name, "taif");
+    printf("%-10d | %-10s | 10s\n",
+        seats[i] .isBooked ? "Booked" : "Available" ,
+        seats[i].passengerName);
 
-    bus[5].booked = 1;
-    strcpy(bus[5].name, "sumit");
+        return 0;
 
-    bus[8].booked = 1;
-    strcpy(bus[8].name, "Ashish");
 
-    showStatus();  // Bus ka seat status show karega
 
-    return 0;
+
+
 }
