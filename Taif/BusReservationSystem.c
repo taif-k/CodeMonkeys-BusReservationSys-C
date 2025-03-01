@@ -130,7 +130,8 @@ void brs()
                         if (seatbook <= buses[match][1]) // 50
                         {
                             buses[match][1] = buses[match][1] - seatbook;
-                            printf("\nSeatleft %d", buses[match][1]);
+                            printf("\nCongratulations! Seat Booked: %d", seatbook);
+                            printf("\nSeat left %d", buses[match][1]);
                             break;
                         }
                         else
@@ -139,6 +140,7 @@ void brs()
                         }
                     }
                 }
+                break;
             }
         }
         else if (option == 2)
@@ -173,12 +175,9 @@ void brs()
                         if (seatbook <= buses[match][1]) // 50
                         {
                             buses[match][1] = buses[match][1] + seatcancel;
-                            printf("\nSeatleft %d", buses[match][1]);
+                            printf("\nSeats Cancelled: %d", seatcancel);
+                            printf("\nSeats Available: %d", buses[match][1]);
                             break;
-                        }
-                        else
-                        {
-                            printf("\nCanceling seats greater than total seats %d", buses[match][1]);
                         }
                     }
                 }
@@ -186,7 +185,42 @@ void brs()
         }
         else if (option == 3)
         {
-            printf("\nCheck Bus status ");
+            while (1)
+            {
+                int fare[5] = {100, 150, 180, 200, 250};
+                char sourcecity[5][10] = {"Delhi", "Noida", "Gurugram", "Haryana", "Faridabad"};
+                char destinationcity[5][10] = {"Noida", "Gurugram", "Haryana", "Faridabad", "Agra"};
+
+                printf("\nEnter Bus Number: ");
+                if (scanf("%d", &busnumber) != 1) //  101  102..
+                {
+                    while (getchar() != '\n')
+                        ;
+                    continue;
+                }
+
+                int match = -1; 
+                for (int i = 0; i < 5; i++)
+                {
+                    if (buses[i][0] == busnumber) 
+                    {
+                        match = i;
+                        break;
+                    }
+                }
+
+                if (match >= 0)
+                {
+                    printf("\n Bus Number       :       %d", buses[match][0]);
+                    printf("\n Source           :       %s", sourcecity[match]);
+                    printf("\n Destination      :       %s", destinationcity[match]);
+                    printf("\n Total Seats      :       %d", 50);
+                    printf("\n Available Seats  :       %d", buses[match][1]); 
+                    printf("\n Fare             :       %d", fare[match]);
+                }
+
+                break;
+            }
         }
         else if (option == 4)
         {
