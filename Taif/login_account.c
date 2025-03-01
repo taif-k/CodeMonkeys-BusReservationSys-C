@@ -12,11 +12,11 @@ int main()
     do
     {
         menu();
-        printf("\nPlease enter 1 or 2: ");
-        if (scanf("%d", &option) != 1 || option < 1)
+        printf("\nEnter task no: ");
+        if (scanf("%d", &option) != 1)
         {
             while (getchar() != '\n');
-            continue;
+            continue;   
         }
 
         if (option == 1)
@@ -63,6 +63,10 @@ int main()
         else if (option == 2)
         {
             break;
+        }
+        else
+        {
+            printf("\nLogin to proceed further");
         }
 
     } while (option != 1);
