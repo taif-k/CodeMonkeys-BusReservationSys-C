@@ -30,7 +30,8 @@ void checkstatus()
 
     printf("\nEnter Bus Number: ");
     scanf("%d", &busnumber);
-
+    While(1)
+     {
     if (busnumber == 101)
     {
         printf("\n Bus Number       :       %d", busnumber);
@@ -72,6 +73,7 @@ void checkstatus()
         printf("\n Fare             :       %d\n", fare[4]);
     }
     else
+    }
     {
         printf("\nInvalid Bus Number! Please enter a valid bus number (101-105).\n");
     }
