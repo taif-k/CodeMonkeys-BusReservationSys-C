@@ -39,4 +39,41 @@ void checkstatus()
         printf("\n Total Seats      :       %d", buses[0][1]);
         printf("\n Fare             :       %d", fare[0]);
     }
+    else if (busnumber == 102)
+    {
+        printf("\n Bus Number       :       %d", busnumber);
+        printf("\n Source City      :       %s", sourcecity[1]);
+        printf("\n Destination City :       %s", destinationcity[1]);
+        printf("\n Total Seats      :       %d", buses[1][1]);
+        printf("\n Fare             :       %d\n", fare[1]);
+    }
+    else if (busnumber == 103)
+    {
+        printf("\n Bus Number       :       %d", busnumber);
+        printf("\n Source City      :       %s", sourcecity[2]);
+        printf("\n Destination City :       %s", destinationcity[2]);
+        printf("\n Total Seats      :       %d", buses[2][1]);
+        printf("\n Fare             :       %d\n", fare[2]);
+    }
+    else if (busnumber == 104)
+    {
+        printf("\n Bus Number       :       %d", busnumber);
+        printf("\n Source City      :       %s", sourcecity[3]);
+        printf("\n Destination City :       %s", destinationcity[3]);
+        printf("\n Total Seats      :       %d", buses[3][1]);
+        printf("\n Fare             :       %d\n", fare[3]);
+    }
+    else if (busnumber == 105)
+    {
+        printf("\n Bus Number       :       %d", busnumber);
+        printf("\n Source City      :       %s", sourcecity[4]);102
+        printf("\n Destination City :       %s", destinationcity[4]);
+        printf("\n Total Seats      :       %d", buses[4][1]);
+        printf("\n Fare             :       %d\n", fare[4]);
+    }
+    else
+    {
+        printf("\nInvalid Bus Number! Please enter a valid bus number (101-105).\n");
+    }
+}
 }
