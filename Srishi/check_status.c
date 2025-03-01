@@ -1,26 +1,42 @@
-//test comment
+#include <stdio.h>
 
-#include<stdio.h>
+void checkstatus();
 
-int main ()
+int main()
 {
-    checkstatus(); // calling
+
+    checkstatus();
+    return 0;
 }
-void checkstatus(){
-    printf("\nseat status: \n");// ye seat status ka header print karta hai
-    printf("seat No | status | pessenge Name\n"); // ye line format me print hoga 
 
-    printf("-------------------------\n"); // ye ek separator line -------------- print karta hai table ko clean dikhane ke liye 
-    for  (int i =0; <MAX SEATS; i++) // ye loop chal rha hai jo 0 se lekar MAX_SEATS -1 tak jayega, ye har ek seat ka status cheak krega 
+void checkstatus()
+{
+    int busnumber = 0;
+    int seatbook = 0;
+    int buses[5][2] = {{101, 50}, {102, 50}, {103, 50}, {104, 50}, {105, 50}};
+    int fare[5] = {100, 200, 300, 400, 500};
+    char sourcecity[5][10] = {
+        "Delhi",
+        "Noida",
+        "Gurugram",
+        "Punjab",
+    };
+    char destinationcity[5][10] = {
+        "Noida",
+        "Delhi",
+        "Gurugram",
+        "Punjab",
+    };
 
-    printf("%-10d | %-10s | 10s\n",
-        seats[i] .isBooked ? "Booked" : "Available" ,
-        seats[i].passengerName);
+    printf("\nEnter Bus Number: ");
+    scanf("%d", &busnumber);
 
-        return 0;
-
-
-
-
-
+    if (busnumber == 101)
+    {
+        printf("\n Bus Number       :       %d", busnumber);
+        printf("\n Source citty     :       %s", sourcecity[0]);
+        printf("\n Destination city :       %s", destinationcity[2]);
+        printf("\n Total Seats      :       %d", buses[0][1]);
+        printf("\n Fare             :       %d", fare[0]);
+    }
 }
