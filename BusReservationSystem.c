@@ -2,7 +2,8 @@
 #include <string.h>
 
 void bus_reservation_sys();
-void signup(char uname[10], char password[10]);
+void user_menu();
+void sign_up(char uname[10], char password[10]);
 void menu();
 void login_account(char username[10], char password[10]);
 void book_ticket(int busnumb, int seatbooked, int bus[5][2]);
@@ -28,24 +29,19 @@ void bus_reservation_sys()
     int seatbook = 0;
     int buses[5][2] = {{101, 50}, {102, 50}, {103, 50}, {104, 50}, {105, 50}};
 
-    signup(username, password);
+    sign_up(username, password);
+    login_account(username, password);
     while (1)
     {
 
-        login_account(username, password);
-
         do // do-while to handle tasks after login
         {
-            printf("\n\n---User Menu---");
-            printf("\n1-Book a ticket");
-            printf("\n2-Cancel a ticket");
-            printf("\n3-Check Bus status");
-            printf("\n4-Logout");
-
+            user_menu();
             printf("\nEnter User menu task no: ");
             if (scanf("%d", &option) != 1 || option < 1 || option > 4)
             {
-                while (getchar() != '\n');
+                while (getchar() != '\n')
+                    ;
                 continue;
             }
 
@@ -70,7 +66,7 @@ void bus_reservation_sys()
     }
 }
 
-void signup(char uname[10], char pword[10])
+void sign_up(char uname[10], char pword[10])
 {
     while (1)
     {
@@ -231,6 +227,15 @@ void menu()
     printf("\n2- Exit");
 }
 
+void user_menu()
+{
+    printf("\n\n---User Menu---");
+    printf("\n1-Book a ticket");
+    printf("\n2-Cancel a ticket");
+    printf("\n3-Check Bus status");
+    printf("\n4-Logout");
+}
+
 void book_ticket(int busnumb, int seatbooked, int bus[5][2])
 {
     while (1)
@@ -338,39 +343,38 @@ void cancel_ticket(int busnumb, int seatcancelled, int bus[5][2])
 void check_bus_status(int busnumb, int bus[5][2])
 {
     while (1)
-                {
-                    int fare[5] = {100, 150, 180, 200, 250};
-                    char sourcecity[5][10] = {"Delhi", "Noida", "Gurugram", "Haryana", "Faridabad"};
-                    char destinationcity[5][10] = {"Noida", "Gurugram", "Haryana", "Faridabad", "Agra"};
+    {
+        int fare[5] = {100, 150, 180, 200, 250};
+        char sourcecity[5][10] = {"Delhi", "Noida", "Gurugram", "Haryana", "Faridabad"};
+        char destinationcity[5][10] = {"Noida", "Gurugram", "Haryana", "Faridabad", "Agra"};
 
-                    printf("\nEnter Bus Number: ");
-                    if (scanf("%d", &busnumb) != 1) //  101  102..
-                    {
-                        while (getchar() != '\n')
-                            ;
-                        continue;
-                    }
+        printf("\nEnter Bus Number: ");
+        if (scanf("%d", &busnumb) != 1) //  101  102..
+        {
+            while (getchar() != '\n')
+                ;
+            continue;
+        }
 
-                    int match = -1;
-                    for (int i = 0; i < 5; i++)
-                    {
-                        if (bus[i][0] == busnumb)
-                        {
-                            match = i;
-                            break;
-                        }
-                    }
+        int match = -1;
+        for (int i = 0; i < 5; i++)
+        {
+            if (bus[i][0] == busnumb)
+            {
+                match = i;
+                break;
+            }
+        }
 
-                    if (match >= 0)
-                    {
-                        printf("\n Bus Number       :       %d", bus[match][0]);
-                        printf("\n Source           :       %s", sourcecity[match]);
-                        printf("\n Destination      :       %s", destinationcity[match]);
-                        printf("\n Total Seats      :       %d", 50);
-                        printf("\n Available Seats  :       %d", bus[match][1]);
-                        printf("\n Fare             :       %d", fare[match]);
-                    }
-                    break;
-                }
-
+        if (match >= 0)
+        {
+            printf("\n Bus Number       :       %d", bus[match][0]);
+            printf("\n Source           :       %s", sourcecity[match]);
+            printf("\n Destination      :       %s", destinationcity[match]);
+            printf("\n Total Seats      :       %d", 50);
+            printf("\n Available Seats  :       %d", bus[match][1]);
+            printf("\n Fare             :       %d", fare[match]);
+        }
+        break;
+    }
 }
