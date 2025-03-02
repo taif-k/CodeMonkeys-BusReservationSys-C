@@ -1,23 +1,23 @@
 #include <stdio.h>
 #include <string.h>
 
-void busreservationsys();
+void bus_reservation_sys();
 void signup(char uname[10], char password[10]);
 void menu();
-void loginaccount(char username[10], char password[10]);
-void bookticket(int busnumb, int seatbooked, int bus[5][2]);
-void cancelticket(int busnumb, int seatcancelled, int bus[5][2]);
-void checkbusstatus(int busnumb, int bus[5][2]);
+void login_account(char username[10], char password[10]);
+void book_ticket(int busnumb, int seatbooked, int bus[5][2]);
+void cancel_ticket(int busnumb, int seatcancelled, int bus[5][2]);
+void check_bus_status(int busnumb, int bus[5][2]);
 
 int main()
 {
     printf("\n------------------------Bus Reservation System------------------------");
-    busreservationsys(); // bus rservation system
+    bus_reservation_sys(); // bus rservation system
 
     return 0;
 }
 
-void busreservationsys()
+void bus_reservation_sys()
 {
     int option = 0;
     int count = 0;
@@ -32,7 +32,7 @@ void busreservationsys()
     while (1)
     {
 
-        loginaccount(username, password);
+        login_account(username, password);
 
         do // do-while to handle tasks after login
         {
@@ -51,15 +51,15 @@ void busreservationsys()
 
             if (option == 1)
             {
-                bookticket(busnumber, seatbook, buses);
+                book_ticket(busnumber, seatbook, buses);
             }
             else if (option == 2)
             {
-                cancelticket(busnumber, seatcancel, buses);
+                cancel_ticket(busnumber, seatcancel, buses);
             }
             else if (option == 3)
             {
-                checkbusstatus(busnumber, buses);
+                check_bus_status(busnumber, buses);
             }
             else if (option == 4)
             {
@@ -160,7 +160,7 @@ void signup(char uname[10], char pword[10])
     }
 }
 
-void loginaccount(char username[10], char password[10])
+void login_account(char username[10], char password[10])
 {
     int option;
     char loginusername[10];
@@ -231,7 +231,7 @@ void menu()
     printf("\n2- Exit");
 }
 
-void bookticket(int busnumb, int seatbooked, int bus[5][2])
+void book_ticket(int busnumb, int seatbooked, int bus[5][2])
 {
     while (1)
     {
@@ -281,7 +281,7 @@ void bookticket(int busnumb, int seatbooked, int bus[5][2])
     }
 }
 
-void cancelticket(int busnumb, int seatcancelled, int bus[5][2])
+void cancel_ticket(int busnumb, int seatcancelled, int bus[5][2])
 {
 
     while (1)
@@ -335,7 +335,7 @@ void cancelticket(int busnumb, int seatcancelled, int bus[5][2])
     }
 }
 
-void checkbusstatus(int busnumb, int bus[5][2])
+void check_bus_status(int busnumb, int bus[5][2])
 {
     while (1)
                 {
