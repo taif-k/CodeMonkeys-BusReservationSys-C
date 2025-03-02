@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Function prototype
-void login();// ye compiler ko btata hai ki ek login finction exist karta hai, jise main ke ander call kiya ja skta hai
+void login();//ye ek declaration hai, ye compiler ko btata hai ki ek login finction exist karta hai, jise main ke ander call kiya ja skta hai
 
 int main() {
     // login function call
@@ -13,6 +13,7 @@ int main() {
 void login() { // ye function user se input lega aur usko process krega.
     int choice;
     
+    while (1) { // infinite loop, jab tak valid input na mile
     printf("Enter 1 for Login\n");
     printf("Enter 2 for Exit\n");
     printf("Enter your choice: ");
@@ -20,10 +21,14 @@ void login() { // ye function user se input lega aur usko process krega.
 
     if (choice == 1) {
         printf("Login Successful!\n");
+        break; // loop ko terminate krega
+
     } else if (choice == 2) {
         printf("Exiting...\n");
+        break;
     } else {
         printf("Invalid Choice! Please enter 1 or 2.\n");
         login();  // dubara se input lene ke liye 
     }
+}
 }
