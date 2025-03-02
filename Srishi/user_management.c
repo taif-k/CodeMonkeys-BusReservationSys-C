@@ -1,1 +1,29 @@
-//
+#include <stdio.h>
+
+// Function prototype
+void login();// ye compiler ko btata hai ki ek login finction exist karta hai, jise main ke ander call kiya ja skta hai
+
+int main() {
+    // login function call
+    login();// function ko call karta hai taki user se input liya ja ske.
+    return 0;// eska matlab hai program succesfully execute ho gya hai.
+}
+
+// login function definition
+void login() { // ye function user se input lega aur usko process krega.
+    int choice;
+    
+    printf("Enter 1 for Login\n");
+    printf("Enter 2 for Exit\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        printf("Login Successful!\n");
+    } else if (choice == 2) {
+        printf("Exiting...\n");
+    } else {
+        printf("Invalid Choice! Please enter 1 or 2.\n");
+        login();  // dubara se input lene ke liye 
+    }
+}
