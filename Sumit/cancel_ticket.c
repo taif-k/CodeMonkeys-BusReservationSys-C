@@ -1,18 +1,29 @@
-#include<stdio.h>
+#include <stdio.h>
 int main()
 {
-    int busnumbers[5] ;
-int number;
-     int cancel=0; 
-     int total=50;
-    
-     printf(" Enter Your Bus Number ");
-     scanf("%d",&number);
-     printf("\nEnter Numbers Seats Want You Cancel ");
-     scanf("%d",&cancel );
+    int number;
+    int cancel = 0;
+    int total = 50;
 
-     printf("\nYour Bus Number:%d ",number);
-     printf("\nYou Canceled Tickets:%d ",cancel);
-printf("\nTotal Number Of Seats Remaining %d ",total-cancel );
+    while (1)
+    {
+        printf(" Enter Your Bus Number ");
 
+        if (scanf("%d", &number) != 1) // agar bus number abc kuch esa dalega toh neeche while getchar()  inout jo bhi hai usse clear krdega ...aur continue neeche if ko skip krega aur loop phirse start hoga
+        {
+            while (getchar() != '\n')
+                ; // clear input (input buffer)
+            continue;
+        }
+
+        printf("\nEnter Numbers Seats Want You Cancel ");
+        scanf("%d", &cancel); // try here    // upar jaise number ke liiye kara hai yha tum try karo
+
+        if (number == 101)
+        {
+            printf("\nYour Bus Number:%d ", number);
+            printf("\nYou Canceled Tickets:%d ", cancel);
+            printf("\nTotal Number Of Seats Remaining %d ", total - cancel);
+        }
+    }
 }
