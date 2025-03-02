@@ -1,22 +1,22 @@
 #include <stdio.h>
 
-void checkstatus(); //yaha pe checkstatus function ko declare kiya gya hai jo bus ki details dikhane ka kaam krega
+void check_status(); //yaha pe checkstatus function ko declare kiya gya hai jo bus ki details dikhane ka kaam krega
 
 int main()// program ka starting point hota hai.
 {
 
-    checkstatus(); //ye functipn call ho rha hai jo bus ki details check krega 
+    check_status(); //ye functipn call ho rha hai jo bus ki details check krega 
     return 0;// eska matlab program execute ho rha hai
 }
 
-void checkstatus()// yha se bus ki details check check karne wala function start ho rha .
+void check_status()// yha se bus ki details check check karne wala function start ho rha .
 {
     int busnumber = 0; // user jo bus number input krega usko store krega 
     int seatbook= 0;// ye variable abhi use nhi ho raha hai, future me booking ke liye ho skta hai 
     int buses[5][2] = {{101, 50}, {102, 50}, {103, 50}, {104, 50}, {105, 50}};// ek 2d array hia jo 5 buses ki details store karta hai
     int fare[5] = {100, 200, 300, 400, 500};// ye array har bus ka ticket price store karta hai.
-    char sourcecity[5][10] = {"Delhi", "Noida", "Gurugram", "Punjab", "bangaluru",};
-    char destinationcity[5][10] = {"Noida", "Delhi", "Gurugram", "Punjab"};
+    char sourcecity[5][10] = {"Delhi", "Noida", "Gurugram", "Punjab", "bangaluru"};
+    char destinationcity[5][10] = {"Noida", "Delhi", "Gurugram", "Punjab", "Haryana"};
 
     while (1)
     {
