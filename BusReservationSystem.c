@@ -1,6 +1,9 @@
 #include <stdio.h>
+#include<string.h>
 
 void brs();
+void signup(char uname[10], char password[10]);
+void loginaccount(char username[10], char password[10]);
 
 int main()
 {
@@ -22,70 +25,11 @@ void brs()
     int seatcancel = 0;
     int buses[5][2] = {{101, 50}, {102, 50}, {103, 50}, {104, 50}, {105, 50}};
 
+    signup(username, password);
     while (1)
     {
-        printf("\n1-Login");
-        printf("\n2-Exit");
-        do // option 1
-        {
-            printf("\nEnter task number: ");
-            if (scanf("%d", &option) != 1)
-            {
-                while (getchar() != '\n')
-                    ;
-                continue;
-            }
 
-            if (option == 1)
-            {
-                while (1)
-                {
-                    printf("\nEnter username: ");
-                    scanf("%s", &username);
-                    printf("Enter password: ");
-                    scanf("%s", &password);
-
-                    int usermatch = 0;
-                    for (int i = 0; username[i] != '\0' || userinfo[0][i] != '\0'; i++) // cm123  //abc12
-                    {
-                        if (username[i] != userinfo[0][i])
-                        {
-                            usermatch = 1;
-                            break;
-                        }
-                    }
-
-                    int passwordmatch = 0;
-                    for (int i = 0; password[i] != '\0' || userinfo[1][i] != '\0'; i++) // cm@123  //ab@123
-                    {
-                        if (password[i] != userinfo[1][i])
-                        {
-                            passwordmatch = 1;
-                            break;
-                        }
-                    }
-
-                    if (usermatch == 0 && passwordmatch == 0)
-                    {
-                        printf("\nWelcome, Team Code Monkeys");
-                        break;
-                    }
-                    else
-                    {
-                        printf("\nEither Username or passwor is Incorrect..Try again");
-                    }
-                }
-            }
-            else if (option == 2)
-            {
-                return;
-            }
-            else
-            {
-                printf("\nLogin to proceed further");
-            }
-
-        } while (option != 1);
+        loginaccount(username, password);
 
         do // do-while to handle tasks after login
         {
@@ -240,4 +184,166 @@ void brs()
 
         } while (count == 0);
     }
+}
+
+void signup(char uname[10], char pword[10])
+{
+    while (1)
+    {
+        printf("\nEnter username to Register: ");
+        scanf("%s", &uname[0]); // Use &uname[0] to pass the address of the first element
+        int length = strlen(uname);
+        int match = 0;
+        int numcount = 0;
+
+        for (int i = 0; uname[i] != '\0'; i++)
+        {
+            if ((uname[i] < '0' || uname[i] > '9') && (uname[i] != '@') && (uname[i] < 'a' || uname[i] > 'z'))
+            {
+                match = 1;
+                break;
+            }
+
+            if (uname[i] >= '0' && uname[i] <= '9')
+            {
+                numcount++;
+            }
+        }
+
+        if (numcount > 4)
+        {
+            match = 1;
+            printf("\nMore than 4 digits present.\n");
+        }
+
+        if (match == 0)
+        {
+            if (length >= 5)
+            {
+                printf("Username is: %s\n", uname);
+                break;
+            }
+            else
+            {
+                printf("\nUsername should be at least 5 characters long.\n");
+            }
+        }
+    }
+
+    while (1)
+    {
+        printf("\nEnter password: ");
+        scanf("%s", &pword[0]); // Use &pword[0] to pass the address of the first element
+        int length = strlen(pword);
+
+        if (length >= 6)
+        {
+            printf("Password is : %s\n", pword);
+            break;
+        }
+        else
+        {
+            printf("\nPassword should be at least 6 characters long");
+        }
+    }
+
+    while (1)
+    {
+        char city[10];
+        printf("\nEnter city: ");
+        scanf("%s", &city[0]); // Use &city[0] to pass the address of the first element
+        int length = strlen(city);
+        int match = 0;
+
+        for (int i = 0; city[i] != '\0'; i++)
+        {
+            if (city[i] < 'a' || city[i] > 'z')
+            {
+                match = 1;
+                break;
+            }
+        }
+
+        if (match == 0)
+        {
+            if (length >= 5)
+            {
+                printf("City is : %s", city);
+                break;
+            }
+            else
+            {
+                printf("\nCity should be at least 5 characters long");
+            }
+        }
+    }
+}
+
+void loginaccount(char username[10], char password[10])
+{
+    int option;
+    char inputUsername[10];
+    char inputPassword[10];
+
+    do
+    {
+        // menu();
+        printf("\nEnter task no: ");
+        if (scanf("%d", &option) != 1)
+        {
+            while (getchar() != '\n')
+                ;
+            continue;
+        }
+
+        if (option == 1)
+        {
+            while (1)
+            {
+                printf("\nEnter username: ");
+                scanf("%s", &inputUsername[0]); // Use &inputUsername[0] to pass the address of the first element
+                printf("Enter password: ");
+                scanf("%s", &inputPassword[0]); // Use &inputPassword[0] to pass the address of the first element
+
+                int usermatch = 0;
+                for (int i = 0; inputUsername[i] != '\0' || username[i] != '\0'; i++) // Compare each character
+                {
+                    if (inputUsername[i] != username[i])
+                    {
+                        usermatch = 1; // Username mismatch
+                        break;
+                    }
+                }
+
+                int passwordmatch = 0;
+                for (int i = 0; inputPassword[i] != '\0' || password[i] != '\0'; i++) // Compare each character
+                {
+                    if (inputPassword[i] != password[i])
+                    {
+                        passwordmatch = 1; // Password mismatch
+                        break;
+                    }
+                }
+
+                if (usermatch == 0 && passwordmatch == 0)
+                {
+                    printf("\nWelcome, Team Code Monkeys\n");
+                    break;
+                }
+                else
+                {
+                    printf("\nEither Username or Password is Incorrect.. Try again\n");
+                }
+            }
+        }
+        else if (option == 2)
+        {
+            break;
+        }
+        else
+        {
+            printf("\nInvalid option, please try again\n");
+        }
+
+    } while (option != 1);
 }
