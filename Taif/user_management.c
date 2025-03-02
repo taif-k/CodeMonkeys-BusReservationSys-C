@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 
-void menu();                                             // Declaration
-void loginaccount(char username[10], char password[10]); 
-void signup(char uname[10], char password[10]);          
+void menu(); // Declaration
+void loginaccount(char username[10], char password[10]);
+void signup(char uname[10], char password[10]);
+
 int main() // User defined function
 {
     char username[10];
     char password[10];
-    signup(username, password);       
-    loginaccount(username, password); 
+    signup(username, password); // calling(has Arguments)
+    loginaccount(username, password);
     return 0;
 }
 
@@ -24,7 +25,7 @@ void signup(char uname[10], char pword[10])
     while (1)
     {
         printf("\nEnter username to Register: ");
-        scanf("%s", &uname[0]); 
+        scanf("%s", &uname[0]);
         int length = strlen(uname);
         int match = 0;
         int numcount = 0;
@@ -43,22 +44,22 @@ void signup(char uname[10], char pword[10])
             }
         }
 
-        if (numcount > 4)
+        if (numcount > 4) // if 4 digits are found in the string, it will update the value of match to 1
         {
             match = 1;
-            printf("\nMore than 4 digits present.\n");
+            printf("\nMore than 4 digits present");
         }
 
-        if (match == 0)
+        if (match == 0) // if digits are not more than 4 and line 35 is not true match is set to 0;
         {
             if (length >= 5)
             {
-                printf("Username is: %s\n", uname);
+                printf("Username is: %s", uname);
                 break;
             }
             else
             {
-                printf("\nUsername should be at least 5 characters long.\n");
+                printf("\nUsername should be at least 5 characters long");
             }
         }
     }
@@ -66,10 +67,10 @@ void signup(char uname[10], char pword[10])
     while (1)
     {
         printf("\nEnter password: ");
-        scanf("%s", &pword[0]); 
+        scanf("%s", &pword[0]);
         int length = strlen(pword);
 
-        if (length >= 6)
+        if (length >= 6) // re-ask for password if length is not equal or more than 6
         {
             printf("Password is : %s\n", pword);
             break;
@@ -84,7 +85,7 @@ void signup(char uname[10], char pword[10])
     {
         char city[10];
         printf("\nEnter city: ");
-        scanf("%s", &city[0]); 
+        scanf("%s", &city[0]);
         int length = strlen(city);
         int match = 0;
 
@@ -134,38 +135,38 @@ void loginaccount(char username[10], char password[10])
             while (1)
             {
                 printf("\nEnter username: ");
-                scanf("%s", &loginusername[0]); 
+                scanf("%s", &loginusername[0]);
                 printf("Enter password: ");
-                scanf("%s", &loginpassword[0]); 
+                scanf("%s", &loginpassword[0]);
 
                 int usermatch = 0;
-                for (int i = 0; loginusername[i] != '\0' || username[i] != '\0'; i++) 
+                for (int i = 0; loginusername[i] != '\0' || username[i] != '\0'; i++)
                 {
-                    if (loginusername[i] != username[i])
+                    if (loginusername[i] != username[i]) // if any char of signup username is not equal to char of login username
                     {
-                        usermatch = 1; 
+                        usermatch = 1;
                         break;
                     }
                 }
 
                 int passwordmatch = 0;
-                for (int i = 0; loginpassword[i] != '\0' || password[i] != '\0'; i++) 
+                for (int i = 0; loginpassword[i] != '\0' || password[i] != '\0'; i++)
                 {
-                    if (loginpassword[i] != password[i])
+                    if (loginpassword[i] != password[i]) // if any char of signup password is not equal to char of login password
                     {
-                        passwordmatch = 1; 
+                        passwordmatch = 1;
                         break;
                     }
                 }
 
-                if (usermatch == 0 && passwordmatch == 0)
+                if (usermatch == 0 && passwordmatch == 0) // if both the string exactly match
                 {
-                    printf("\nWelcome, Team Code Monkeys\n");
+                    printf("\nWelcome, Team Code Monkeys");
                     break;
                 }
                 else
                 {
-                    printf("\nEither Username or Password is Incorrect.. Try again\n");
+                    printf("\nEither Username or Password is Incorrect.. Try again");
                 }
             }
         }
