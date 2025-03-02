@@ -11,8 +11,7 @@ int main()
 
         if (scanf("%d", &number) != 1) // agar bus number abc kuch esa dalega toh neeche while getchar()  inout jo bhi hai usse clear krdega ...aur continue neeche if ko skip krega aur loop phirse start hoga
         {
-            while (getchar() != '\n')
-                ; // clear input (input buffer)
+            while (getchar() != '\n'); // clear input (input buffer)
             continue;
         }
 
