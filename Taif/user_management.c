@@ -175,5 +175,5 @@ void loginaccount(char username[10], char password[10])
             break;
         }
 
-    } while (option != 1);
+    } while (option != 1); 
 }
