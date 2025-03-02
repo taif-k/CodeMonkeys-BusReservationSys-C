@@ -1,8 +1,9 @@
 #include <stdio.h>
-#include<string.h>
+#include <string.h>
 
 void brs();
 void signup(char uname[10], char password[10]);
+void menu();
 void loginaccount(char username[10], char password[10]);
 
 int main()
@@ -287,7 +288,7 @@ void loginaccount(char username[10], char password[10])
 
     do
     {
-        // menu();
+        menu();
         printf("\nEnter task no: ");
         if (scanf("%d", &option) != 1)
         {
@@ -340,10 +341,12 @@ void loginaccount(char username[10], char password[10])
         {
             break;
         }
-        else
-        {
-            printf("\nInvalid option, please try again\n");
-        }
 
     } while (option != 1);
+}
+
+void menu()
+{
+    printf("\n1- Login");
+    printf("\n2- Exit");
 }
