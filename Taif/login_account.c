@@ -1,12 +1,26 @@
 #include <stdio.h>
 
-void menu();
+void menu(); // Declaration
+void loginaccount();
 
-int main()
+int main() // User defined function
 {
+    loginaccount();
+    return 0;
+}
+
+void menu() //  Defination
+{
+    printf("\n1- Login");
+    printf("\n2- Exit");
+}
+
+void loginaccount()
+{
+
     int option;
-    char userinfo[2][10] = {"cm123", "cm@123"}; // { {"cm123"}, {"cm@123"} }  row = username col = password, 10 is length
-    char username[10]; 
+    char userinfo[2][10] = {"cm123", "cm@123"}; // username = cm123 | password = cm@123
+    char username[10];
     char password[10];
 
     do
@@ -15,8 +29,9 @@ int main()
         printf("\nEnter task no: ");
         if (scanf("%d", &option) != 1)
         {
-            while (getchar() != '\n');
-            continue;   
+            while (getchar() != '\n')
+                ;
+            continue;
         }
 
         if (option == 1)
@@ -70,12 +85,4 @@ int main()
         }
 
     } while (option != 1);
-
-    return 0;
-}
-
-void menu()
-{
-    printf("\n1- Login");
-    printf("\n2- Exit");
 }
