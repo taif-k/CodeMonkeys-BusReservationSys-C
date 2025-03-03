@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-                                             // Currently working//
-void bus_reservation_sys(); 
+// Currently working//
+void bus_reservation_sys();
 void user_menu();
 void sign_up(char uname[10], char password[10]);
 void menu();
@@ -240,7 +240,7 @@ void book_bus_ticket(int busnumb, int seatbooked, int bus[5][2])
 {
     while (1)
     {
-        printf("\nEnter Bus number: ");
+        printf("\nEnter Bus number for booking: ");
         if (scanf("%d", &busnumb) != 1)
         {
             while (getchar() != '\n')
@@ -262,21 +262,24 @@ void book_bus_ticket(int busnumb, int seatbooked, int bus[5][2])
 
             if (match >= 0)
             {
-                printf("\nEnter number of seats to book: ");
-                scanf("%d", &seatbooked); // 2
+                while (1)
+                {
+                    printf("\nEnter number of seats to book: ");
+                    scanf("%d", &seatbooked); // 2
 
-                if (seatbooked <= bus[match][1]) // 50
-                {
-                    bus[match][1] = bus[match][1] - seatbooked;
-                    printf("\nCongratulations! Seat Booked: %d", seatbooked);
-                    printf("\nSeat left %d", bus[match][1]);
-                    break;
+                    if (seatbooked <= bus[match][1]) // 50
+                    {
+                        bus[match][1] = bus[match][1] - seatbooked;
+                        printf("\nCongratulations! Seat Booked: %d", seatbooked);
+                        printf("\nSeat left %d", bus[match][1]);
+                        break;
+                    }
+                    else
+                    {
+                        printf("\nBooking seats greater than total seats %d", bus[match][1]);
+                    }
                 }
-                else
-                {
-                    printf("\nBooking seats greater than total seats %d", bus[match][1]);
-                    break;
-                }
+                break;
             }
         }
         else
@@ -291,7 +294,7 @@ void cancel_bus_ticket(int busnumb, int seatcancelled, int bus[5][2])
 
     while (1)
     {
-        printf("\nEnter Bus number: ");
+        printf("\nEnter Bus number for cancelelling: ");
         if (scanf("%d", &busnumb) != 1)
         {
             while (getchar() != '\n')
