@@ -31,39 +31,36 @@ void bus_reservation_sys()
 
     sign_up(username, password);
     login_account(username, password);
-    while (1)
+
+    do // do-while to handle tasks after login
     {
-
-        do // do-while to handle tasks after login
+        user_menu();
+        printf("\nEnter User menu task no: ");
+        if (scanf("%d", &option) != 1 || option < 1 || option > 4)
         {
-            user_menu();
-            printf("\nEnter User menu task no: ");
-            if (scanf("%d", &option) != 1 || option < 1 || option > 4)
-            {
-                while (getchar() != '\n')
-                    ;
-                continue;
-            }
+            while (getchar() != '\n')
+                ;
+            continue;
+        }
 
-            if (option == 1)
-            {
-                book_bus_ticket(busnumber, seatbook, buses);
-            }
-            else if (option == 2)
-            {
-                cancel_bus_ticket(busnumber, seatcancel, buses);
-            }
-            else if (option == 3)
-            {
-                check_bus_status(busnumber, buses);
-            }
-            else if (option == 4)
-            {
-                count = 1;
-            }
+        if (option == 1)
+        {
+            book_bus_ticket(busnumber, seatbook, buses);
+        }
+        else if (option == 2)
+        {
+            cancel_bus_ticket(busnumber, seatcancel, buses);
+        }
+        else if (option == 3)
+        {
+            check_bus_status(busnumber, buses);
+        }
+        else if (option == 4)
+        {
+            login_account(username, password);
+        }
 
-        } while (count == 0);
-    }
+    } while (count == 0);
 }
 
 void sign_up(char uname[10], char pword[10])
@@ -100,57 +97,54 @@ void sign_up(char uname[10], char pword[10])
         {
             if (length >= 5)
             {
-                break;
+                while (1)
+                {
+                    printf("Enter password: ");
+                    scanf("%s", &pword[0]);
+                    int length = strlen(pword);
+
+                    if (length >= 6) // re-ask for password if length is not equal or more than 6
+                    {
+                        while (1)
+                        {
+                            char city[10];
+                            printf("Enter city: ");
+                            scanf("%s", &city[0]);
+                            int length = strlen(city);
+                            int match = 0;
+
+                            for (int i = 0; city[i] != '\0'; i++)
+                            {
+                                if (city[i] < 'a' || city[i] > 'z')
+                                {
+                                    match = 1;
+                                    break;
+                                }
+                            }
+
+                            if (match == 0)
+                            {
+                                if (length >= 5)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    printf("\nCity should be at least 5 characters long");
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        printf("\nPassword should be at least 6 characters long");
+                    }
+                }
             }
             else
             {
                 printf("\nUsername should be at least 5 characters long");
-            }
-        }
-    }
-
-    while (1)
-    {
-        printf("Enter password: ");
-        scanf("%s", &pword[0]);
-        int length = strlen(pword);
-
-        if (length >= 6) // re-ask for password if length is not equal or more than 6
-        {
-            break;
-        }
-        else
-        {
-            printf("\nPassword should be at least 6 characters long");
-        }
-    }
-
-    while (1)
-    {
-        char city[10];
-        printf("Enter city: ");
-        scanf("%s", &city[0]);
-        int length = strlen(city);
-        int match = 0;
-
-        for (int i = 0; city[i] != '\0'; i++)
-        {
-            if (city[i] < 'a' || city[i] > 'z')
-            {
-                match = 1;
-                break;
-            }
-        }
-
-        if (match == 0)
-        {
-            if (length >= 5)
-            {
-                break;
-            }
-            else
-            {
-                printf("\nCity should be at least 5 characters long");
             }
         }
     }
