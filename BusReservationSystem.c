@@ -141,6 +141,7 @@ void sign_up(char uname[10], char pword[10])
                         printf("\nPassword should be at least 6 characters long");
                     }
                 }
+                break;
             }
             else
             {
