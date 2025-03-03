@@ -1,16 +1,16 @@
 #include <stdio.h>
 
-void book_ticket();
+void book_ticket();  // Decalartion 
 void busnumbers();
 
 int main()
 {
-    busnumbers();
+    busnumbers();  // calling
     book_ticket();
     return 0;
-}
+} 
 
-void book_ticket()
+void book_ticket()  // user-defined function
 {
     int busnumber = 0;
     int seatbook = 0;
@@ -21,8 +21,7 @@ void book_ticket()
         printf("\nEnter valid Bus number: ");
         if (scanf("%d", &busnumber) != 1)
         {
-            while (getchar() != '\n')
-                ; // input buffer is cleared if anything other than integer is given as inout
+            while (getchar() != '\n'); // input buffer is cleared if anything other than integer is given as inout
             continue;
         }
 
@@ -51,7 +50,7 @@ void book_ticket()
                         continue;
                     }
 
-                    if (seatbook <= 0)
+                    if (seatbook <= 0)   //IF seat number is entered in negative, rest if else are skipped and while loop keeps on running
                     {
                         printf("\nSeats cannot be Negative");
                         continue;
