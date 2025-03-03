@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Function prototype
+
 void login();//ye ek declaration hai, ye compiler ko btata hai ki ek login finction exist karta hai, jise main ke ander call kiya ja skta hai
 
 int main() {
