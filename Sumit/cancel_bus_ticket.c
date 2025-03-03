@@ -15,10 +15,12 @@ int main()
                 ; // clear input (input buffer)
             continue;
         }
-
+        while (1)
+        {
         printf("\nEnter Numbers Seats Want You Cancel ");
-        scanf("%d", &cancel); // try here    // upar jaise number ke liiye kara hai yha tum try karo
-
+        if (scanf("%d", &cancel) != 1)
+        while (getchar()  != '\n') // try here    // upar jaise number ke liiye kara hai yha tum try karo
+        continue;
         if (number == 101)
         {
             printf("\nYour Bus Number:%d ", number);
@@ -30,5 +32,8 @@ int main()
         {
             printf("\nEnter 101 bus number ");
         }
+    
+    
+}
     }
 }
