@@ -42,7 +42,11 @@ void cancel_bus_ticket() // defination
                 while (1)
                 {
                     printf("\nEnter number of seats to cancel: ");
-                    scanf("%d", &seatcancel); // 2
+                    if(scanf("%d", &seatcancel) != 1)
+                    {
+                        while(getchar() != '\n');  //   abcde
+                        continue;
+                    } // 2
 
                     if (seatcancel <= buses[match][1]) // ex: 2 <= 60
                     {
