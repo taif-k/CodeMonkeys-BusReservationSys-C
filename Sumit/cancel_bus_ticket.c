@@ -1,22 +1,29 @@
 #include <stdio.h>
+
+void cancel_bus_ticket();
+
 int main()
+{
+    cancel_bus_ticket();
+}
+
+void cancel_bus_ticket()
 {
     int number;
     int cancel = 0;
     int total = 50;
-
     while (1)
     {
         printf("\nEnter Your Bus Number ");
 
-        if (scanf("%d", &number) != 1) // agar bus number abc kuch esa dalega toh neeche while getchar()  inout jo bhi hai usse clear krdega ...aur continue neeche if ko skip krega aur loop phirse start hoga
+        if (scanf("%d", &number) != 1) //
         {
             while (getchar() != '\n')
                 ; // clear input (input buffer)
             continue;
         }
 
-        printf("\nEnter Numbers Seats Want You Cancel ");
+        printf("Enter Numbers Seats Want You Cancel ");
         scanf("%d", &cancel); // try here    // upar jaise number ke liiye kara hai yha tum try karo
 
         if (number == 101)
@@ -28,7 +35,7 @@ int main()
         }
         else
         {
-            printf("\nEnter 101 bus number ");
+            printf("\nChecking for only 101 ");
         }
     }
 }
