@@ -1,19 +1,18 @@
 #include <stdio.h>
 
-void checkstatus();
+void check_bus_status();
 void busnumbers();
 int main()
 {
-
     busnumbers();
-    checkstatus();
+    check_bus_status();
     return 0;
 }
 
-void checkstatus()
+void check_bus_status()
 {
     int fare[5] = {100, 150, 180, 200, 250};
-    int buses[5][2] = {{101, 50}, {102, 50}, {103, 50}, {104, 50}, {105, 50}};
+    int buses[5][2] = {{101, 60}, {102, 70}, {103, 80}, {104, 90}, {105, 100}};
     char sourcecity[5][10] = {"Delhi", "Noida", "Gurugram", "Haryana", "Faridabad"};
     char destinationcity[5][10] = {"Noida", "Gurugram", "Haryana", "Faridabad", "Agra"};
 
@@ -44,9 +43,10 @@ void checkstatus()
             printf("\n Bus Number       :       %d", buses[match][0]);
             printf("\n Source           :       %s", sourcecity[match]);
             printf("\n Destination      :       %s", destinationcity[match]);
-            printf("\n Total Seats      :       %d", 50);
-            printf("\n Available Seats  :       %d", buses[match][1]);
+            printf("\n Total Seats      :       %d", buses[match][1]);
+            printf("\n Available Seats  :       %d", buses[match][1] - (match + 1)); // test
             printf("\n Fare             :       %d", fare[match]);
+            break;
         }
     }
 }
