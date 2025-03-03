@@ -25,23 +25,39 @@ void cancel_bus_ticket()
 
         while (1)
         {
-            printf("\nEnter Numbers Seats Want You Cancel ");
+            printf("\nEnter Seats you want to Cancel ");
             if (scanf("%d", &cancel) != 1)
             {
                 while (getchar() != '\n')
-                    continue;
-                if (number == 101)
-                {
-                    printf("\nYour Bus Number:%d ", number);
-                    printf("\nYou Canceled Tickets:%d ", cancel);
-                    printf("\nTotal Number Of Seats Remaining %d ", total - cancel);
-                    break;
-                }
-                else
-                {
-                    printf("\nEnter 101 bus number ");
-                }
+                    ;
+                continue;
+            }
+            if (number == 101)
+            {
+                printf("\nYour Bus Number:%d ", number);
+                printf("\nYou Canceled Tickets:%d ", cancel);
+                printf("\nTotal Number Of Seats Remaining %d ", total - cancel);
+                break;
+            }
+            else if (number == 102)
+            {
+                printf("\nYour Bus Number:%d ", number);
+                printf("\nYou Canceled Tickets:%d ", cancel);
+                printf("\nTotal Number Of Seats Remaining %d ", total - cancel);
+                break;
+            }
+            else if (number == 103)
+            {
+                printf("\nYour Bus Number:%d ", number);
+                printf("\nYou Canceled Tickets:%d ", cancel);
+                printf("\nTotal Number Of Seats Remaining %d ", total - cancel);
+                break;
+            }
+            else
+            {
+                printf("\nEnter valid bus number ");
             }
         }
+        break;
     }
 }
