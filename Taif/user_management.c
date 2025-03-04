@@ -16,6 +16,7 @@ int main() // User defined function
 
 void menu() // Definition
 {
+    printf("\n Login credentials (testing purpose): username - cm123, password - cm@123");
     printf("\n1- Login");
     printf("\n2- Exit");
 }
