@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void logout_account(int opt);
+void logout_account(int opt); 
 
 int main()
 {

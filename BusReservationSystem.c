@@ -6,9 +6,10 @@ void user_menu();
 void sign_up(char uname[10], char password[10]);
 void menu();
 void login_account(char username[10], char password[10]);
-void book_bus_ticket(int busnumb, int seatbooked, int bus[5][2]);
+void book_bus_ticket(int busnumb, int seatbooked, int bus[5][2], int alreadybooked[5]);
 void cancel_bus_ticket(int busnumb, int seatcancelled, int bus[5][2], int booked[5]);
-void check_bus_status(int busnumb, int bus[5][2]);
+void check_bus_status(int busnumb, int bus[5][2], int seattotal[5]);
+int exit_variable = 0;
 
 int main()
 {
@@ -21,19 +22,27 @@ void bus_reservation_sys()
 {
 
     int option = 0;
-    int count = 0;
+
     char username[10] = {"cm123"};
     char password[10] = {"cm@123"};
     int seatcancel = 0;
     int busnumber = 0;
     int seatbook = 0;
+    int count = 0;
     int buses[5][2] = {{101, 60}, {102, 70}, {103, 80}, {104, 95}, {105, 100}};
+    int total_seats[5] = {60, 70, 80, 95, 100};
     int alreadybooked[5] = {0, 0, 0, 0, 0}; // store the booked seats
 
     login_account(username, password);
 
+    if (exit_variable == 1)
+    {
+        return;
+    }
+
     do // do-while to handle tasks after login
     {
+
         user_menu();
         printf("\nEnter User menu task no: ");
         if (scanf("%d", &option) != 1 || option < 1 || option > 4)
@@ -45,7 +54,7 @@ void bus_reservation_sys()
 
         if (option == 1)
         {
-            book_bus_ticket(busnumber, seatbook, buses);
+            book_bus_ticket(busnumber, seatbook, buses, alreadybooked);
         }
         else if (option == 2)
         {
@@ -53,7 +62,7 @@ void bus_reservation_sys()
         }
         else if (option == 3)
         {
-            check_bus_status(busnumber, buses);
+            check_bus_status(busnumber, buses, total_seats);
         }
         else if (option == 4)
         {
@@ -122,8 +131,8 @@ void login_account(char username[10], char password[10])
         }
         else if (option == 2)
         {
-            // break;
-            return;
+            exit_variable = 1;
+            break;
         }
 
     } while (option != 1);
@@ -145,7 +154,7 @@ void user_menu()
     printf("\n4-Logout");
 }
 
-void book_bus_ticket(int busnumb, int seatbooked, int bus[5][2])
+void book_bus_ticket(int busnumb, int seatbooked, int bus[5][2], int alreadybooked[5])
 {
     while (1)
     {
@@ -193,6 +202,8 @@ void book_bus_ticket(int busnumb, int seatbooked, int bus[5][2])
                         bus[match][1] = bus[match][1] - seatbooked;
                         printf("\nCongratulations! Seat Booked: %d", seatbooked);
                         printf("\nSeat left %d", bus[match][1]);
+                        alreadybooked[match] = alreadybooked[match] + seatbooked;
+
                         break;
                     }
                     else
@@ -254,7 +265,6 @@ void cancel_bus_ticket(int busnumb, int seatcancelled, int bus[5][2], int booked
 
                     if (seatcancelled <= booked[match]) // booked[0] booked[1]..........booked[5]
                     {
-                        printf("\nTotal seats %d", bus[match][1]);
                         booked[match] = booked[match] - seatcancelled;
                         bus[match][1] = bus[match][1] + seatcancelled;
                         printf("\nSeats Cancelled: %d", seatcancelled);
@@ -276,7 +286,7 @@ void cancel_bus_ticket(int busnumb, int seatcancelled, int bus[5][2], int booked
     }
 }
 
-void check_bus_status(int busnumb, int bus[5][2])
+void check_bus_status(int busnumb, int bus[5][2], int seattotal[5])
 {
     while (1)
     {
@@ -307,7 +317,7 @@ void check_bus_status(int busnumb, int bus[5][2])
             printf("\n Bus Number       :       %d", bus[match][0]);
             printf("\n Source           :       %s", sourcecity[match]);
             printf("\n Destination      :       %s", destinationcity[match]);
-            printf("\n Total Seats      :       %d", bus[match][1]);
+            printf("\n Total Seats      :       %d", seattotal[match]);
             printf("\n Available Seats  :       %d", bus[match][1]);
             printf("\n Fare             :       %d", fare[match]);
             break;
