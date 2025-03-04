@@ -46,7 +46,7 @@ void check_bus_status(int book[5])
             printf("\n Source           :       %s", sourcecity[match]);
             printf("\n Destination      :       %s", destinationcity[match]);
             printf("\n Total Seats      :       %d", buses[match][1]);
-            printf("\n Available Seats  :       %d", buses[match][1] - book[match] - 2); // test thats why -2
+            printf("\n Available Seats  :       %d", buses[match][1] - book[match] - 2); // test thats why -2..updating in main file 
             printf("\n Fare             :       %d", fare[match]);
 
             book[match] = book[match] + 1;
