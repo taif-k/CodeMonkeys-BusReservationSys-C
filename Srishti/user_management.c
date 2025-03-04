@@ -10,35 +10,41 @@ int main()
 }
 
 // login function definition
-void login()
-{ // ye function user se input lega aur usko process krega.
+void login() // ye function user se input lega aur usko process krega.
+{
     int choice;
 
-    while (1)
-    { // infinite loop, jab tak valid input na mile
+    while (1) // infinite loop, jab tak valid input na mile
+    {
         printf("Enter 1 for Login\n");
         printf("Enter 2 for Exit\n");
-        printf("\nEnter your choice: ");
+        printf("Enter your choice: ");
+
         if (scanf("%d", &choice) != 1)
         {
             while (getchar() != '\n')
                 ;
             continue;
-        }
+
+        } // ab a
 
         if (choice == 1)
         {
-            printf("\nLogin Successful!\n");
+            printf("Login Successful!\n");
             break; // loop ko terminate krega
         }
         else if (choice == 2)
         {
-            printf("\nExiting...\n");
+
+            printf("Exiting...\n");
+
             break;
         }
         else
         {
-            printf("\nInvalid Choice! Please enter 1 or 2.\n");
+
+            printf("Invalid Choice! Please enter 1 or 2.\n");
+
             login(); // dubara se input lene ke liye
         }
     }

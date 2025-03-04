@@ -20,6 +20,7 @@ void check_status() // yha se bus ki details check check karne wala function sta
 
     while (1)
     {
+
         printf("\nEnter Bus Number: "); // ek infinite loop hai, jab tak user valid bus number enter nahi karega, jab tak ye loop chalega.
         if (scanf("%d", &busnumber) != 1)
         {
@@ -27,6 +28,7 @@ void check_status() // yha se bus ki details check check karne wala function sta
                 ;
             continue;
         } // user se ek integer input leta hai jo bus number hoga
+
         if (busnumber == 101)
         {
             printf("\n Bus Number       :       %d", busnumber);
