@@ -14,23 +14,22 @@ int main()
 {
     printf("\n------------------------Bus Reservation System------------------------");
     bus_reservation_sys(); // bus rservation system
-
     return 0;
 }
 
 void bus_reservation_sys()
 {
+
     int option = 0;
     int count = 0;
-    char username[10]= {"cm123"};
-    char password[10]={"cm@123"};
+    char username[10] = {"cm123"};
+    char password[10] = {"cm@123"};
     int seatcancel = 0;
     int busnumber = 0;
     int seatbook = 0;
     int buses[5][2] = {{101, 60}, {102, 70}, {103, 80}, {104, 95}, {105, 100}};
     int alreadybooked[5] = {0, 0, 0, 0, 0}; // store the booked seats
 
-    // sign_up(username, password);
     login_account(username, password);
 
     do // do-while to handle tasks after login
@@ -62,94 +61,6 @@ void bus_reservation_sys()
         }
 
     } while (count == 0);
-}
-
-void sign_up(char uname[10], char pword[10])
-{
-    while (1)
-    {
-        printf("\nEnter username to Register: ");
-        scanf("%s", &uname[0]);
-        int length = strlen(uname);
-        int match = 0;
-        int numcount = 0;
-
-        for (int i = 0; uname[i] != '\0'; i++)
-        {
-            if ((uname[i] < '0' || uname[i] > '9') && (uname[i] != '@') && (uname[i] < 'a' || uname[i] > 'z'))
-            {
-                match = 1;
-                break;
-            }
-
-            if (uname[i] >= '0' && uname[i] <= '9')
-            {
-                numcount++;
-            }
-        }
-
-        if (numcount > 4) // if 4 digits are found in the string, it will update the value of match to 1
-        {
-            match = 1;
-            printf("\nMore than 4 digits present");
-        }
-
-        if (match == 0) // if digits are not more than 4 and line 35 is not true match is set to 0;
-        {
-            if (length >= 5)
-            {
-                while (1)
-                {
-                    printf("Enter password: ");
-                    scanf("%s", &pword[0]);
-                    int length = strlen(pword);
-
-                    if (length >= 6) // re-ask for password if length is not equal or more than 6
-                    {
-                        while (1)
-                        {
-                            char city[10];
-                            printf("Enter city: ");
-                            scanf("%s", &city[0]);
-                            int length = strlen(city);
-                            int match = 0;
-
-                            for (int i = 0; city[i] != '\0'; i++)
-                            {
-                                if (city[i] < 'a' || city[i] > 'z')
-                                {
-                                    match = 1;
-                                    break;
-                                }
-                            }
-
-                            if (match == 0)
-                            {
-                                if (length >= 5)
-                                {
-                                    break;
-                                }
-                                else
-                                {
-                                    printf("\nCity should be at least 5 characters long");
-                                }
-                            }
-                        }
-                        break;
-                    }
-                    else
-                    {
-                        printf("\nPassword should be at least 6 characters long");
-                    }
-                }
-                break;
-            }
-            else
-            {
-                printf("\nUsername should be at least 5 characters long");
-            }
-        }
-    }
 }
 
 void login_account(char username[10], char password[10])
@@ -211,7 +122,8 @@ void login_account(char username[10], char password[10])
         }
         else if (option == 2)
         {
-            break;
+            // break;
+            return;
         }
 
     } while (option != 1);
@@ -219,6 +131,7 @@ void login_account(char username[10], char password[10])
 
 void menu()
 {
+    printf("\nLogin credentials (Testing purpose)  username - cm123  password - cm@123");
     printf("\n1- Login");
     printf("\n2- Exit");
 }
