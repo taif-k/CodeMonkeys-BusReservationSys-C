@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h> //Headerfile
 int main()
 {
 int option;
@@ -6,9 +6,10 @@ while(1)
 {
 printf("\nEnter Your Option ");
 
-if(scanf("%d",&option)!= 1)
+if(scanf("%d",&option)!= 1) 
 {
-    while (getchar() != '\n')
+    while (getchar() != '\n')//  if a character is given as input ,input will be cleared
+    ; // clear input 
     continue;
 }
 
