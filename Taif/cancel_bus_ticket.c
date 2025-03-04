@@ -59,7 +59,7 @@ void cancel_bus_ticket(int booked[5]) // defination
                         continue;
                     }
 
-                    if (seatcancel <= booked[match]) // ex: 2 <= 60
+                    if (seatcancel <= booked[match]) // cancelled seats are compared with booked seats
                     {
                         booked[match] = booked[match] - seatcancel;
                         buses[match][1] = buses[match][1] + seatcancel;
