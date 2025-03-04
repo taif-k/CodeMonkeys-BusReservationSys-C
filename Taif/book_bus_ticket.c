@@ -81,6 +81,6 @@ void busnumbers()
     int buses[5][2] = {{101, 50}, {102, 60}, {103, 70}, {104, 80}, {105, 90}}; // {bus number, total seats}
     for (int i = 0; i < 5; i++)
     {
-        printf("\nBus Number %d : seats%d", buses[i][0], buses[i][1]);
+        printf("\nBus Number %d : seats %d", buses[i][0], buses[i][1]);
     }
 }
