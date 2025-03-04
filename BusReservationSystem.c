@@ -22,15 +22,15 @@ void bus_reservation_sys()
 {
     int option = 0;
     int count = 0;
-    char username[10];
-    char password[10];
+    char username[10]= {"cm123"};
+    char password[10]={"cm@123"};
     int seatcancel = 0;
     int busnumber = 0;
     int seatbook = 0;
     int buses[5][2] = {{101, 60}, {102, 70}, {103, 80}, {104, 95}, {105, 100}};
     int alreadybooked[5] = {0, 0, 0, 0, 0}; // store the booked seats
 
-    sign_up(username, password);
+    // sign_up(username, password);
     login_account(username, password);
 
     do // do-while to handle tasks after login
