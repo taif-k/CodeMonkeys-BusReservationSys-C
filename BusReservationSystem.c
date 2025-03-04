@@ -341,7 +341,7 @@ void cancel_bus_ticket(int busnumb, int seatcancelled, int bus[5][2], int booked
 
                     if (seatcancelled <= booked[match]) // booked[0] booked[1]..........booked[5]
                     {
-                        // printf("\nTotak seats %d", bus[match][1]);
+                        printf("\nTotal seats %d", bus[match][1]);
                         booked[match] = booked[match] - seatcancelled;
                         bus[match][1] = bus[match][1] + seatcancelled;
                         printf("\nSeats Cancelled: %d", seatcancelled);
@@ -397,7 +397,7 @@ void check_bus_status(int busnumb, int bus[5][2])
             printf("\n Total Seats      :       %d", bus[match][1]);
             printf("\n Available Seats  :       %d", bus[match][1]);
             printf("\n Fare             :       %d", fare[match]);
+            break;
         }
-        break;
     }
 }
