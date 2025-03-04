@@ -1,23 +1,25 @@
 #include <stdio.h>
 
-void check_bus_status();
+void check_bus_status(int book[5]);
 void busnumbers();
+
 int main()
 {
+    int booked[5] = {0, 0, 0, 0, 0};
+
     busnumbers();
-    check_bus_status();
+    check_bus_status(booked);
     return 0;
 }
 
-void check_bus_status()
+void check_bus_status(int book[5])
 {
-    int fare[5] = {100, 150, 180, 200, 250};
-    int buses[5][2] = {{101, 60}, {102, 70}, {103, 80}, {104, 90}, {105, 100}};
-    char sourcecity[5][10] = {"Delhi", "Noida", "Gurugram", "Haryana", "Faridabad"};
-    char destinationcity[5][10] = {"Noida", "Gurugram", "Haryana", "Faridabad", "Agra"};
-
     while (1)
     {
+        int fare[5] = {100, 150, 180, 200, 250};
+        char sourcecity[5][10] = {"Delhi", "Noida", "Gurugram", "Haryana", "Faridabad"};
+        char destinationcity[5][10] = {"Noida", "Gurugram", "Haryana", "Faridabad", "Agra"};
+        int buses[5][2] = {{101, 60}, {102, 70}, {103, 80}, {104, 90}, {105, 100}};
         int busnumber = 0;
 
         printf("\nEnter Bus Number: ");
@@ -44,9 +46,10 @@ void check_bus_status()
             printf("\n Source           :       %s", sourcecity[match]);
             printf("\n Destination      :       %s", destinationcity[match]);
             printf("\n Total Seats      :       %d", buses[match][1]);
-            printf("\n Available Seats  :       %d", buses[match][1] - (match + 1)); // test
+            printf("\n Available Seats  :       %d", buses[match][1] - book[match] - 2); // test thats why -2
             printf("\n Fare             :       %d", fare[match]);
-            break;
+
+            book[match] = book[match] + 1;
         }
     }
 }
