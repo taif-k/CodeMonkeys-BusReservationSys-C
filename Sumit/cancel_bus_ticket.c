@@ -1,14 +1,13 @@
 #include <stdio.h>
 
-void cancel_bus_ticket(); //Declaration
+void cancel_bus_ticket(); // Declaration
 void busnumbers();
 
-int main() //system define
+int main() // system define
 {
     busnumbers();
-    cancel_bus_ticket(); //calling
+    cancel_bus_ticket(); // calling
 }
-
 
 void cancel_bus_ticket() // user define function
 {
@@ -20,10 +19,10 @@ void cancel_bus_ticket() // user define function
     {
         printf("\nEnter valid Your Bus Number ");
 
-        if (scanf("%d", &number) != 1) 
+        if (scanf("%d", &number) != 1)
         {
             while (getchar() != '\n') //  if a character is given as input ,input will be cleared
-                ; // clear input (input buffer)
+                ;                     // clear input (input buffer)
             continue;
         }
         if (number == 101 || number == 102 || number == 103)
@@ -38,10 +37,11 @@ void cancel_bus_ticket() // user define function
                     continue;
                 }
 
-                if(cancel_seat < 0)
+                if (cancel_seat < 0 || cancel_seat > booked_book)
                 {
                     continue;
                 }
+
 
                 if (number == 101)
                 {
@@ -72,4 +72,11 @@ void cancel_bus_ticket() // user define function
             break;
         }
     }
+}
+
+void busnumbers()
+{
+    printf(" Bus numbers: 101 ");
+    printf(" Bus numbers: 102 ");
+    printf(" Bus numbers: 103 ");
 }
