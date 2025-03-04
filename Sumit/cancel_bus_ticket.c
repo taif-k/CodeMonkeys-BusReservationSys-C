@@ -4,7 +4,7 @@ void cancel_bus_ticket();
 
 int main() // Function
 {
-    cancel_bus_ticket(); // Main function
+    cancel_bus_ticket(); // Main function 
 }
 
 void cancel_bus_ticket() // Function
