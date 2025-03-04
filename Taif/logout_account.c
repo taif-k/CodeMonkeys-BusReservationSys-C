@@ -8,9 +8,7 @@ int main()
         printf("\nEnter 1 to logout: ");
         if (scanf("%d", &option) != 1)
         {
-            while (getchar() != '\n')
-                ;
-            ;
+            while (getchar() != '\n');
             continue;
         }
 
