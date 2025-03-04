@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-void cancel_bus_ticket();
+void cancel_bus_ticket(); //
 
 int main()
 {
-    cancel_bus_ticket();
+    cancel_bus_ticket(); //
 }
 
-void cancel_bus_ticket()
+void cancel_bus_ticket() //
 {
 
     int number;
@@ -36,7 +36,7 @@ void cancel_bus_ticket()
                     continue;
                 }
 
-                if (cancel < 0)
+                if (cancel < 0) // 
                 {
                     continue;
                 }
