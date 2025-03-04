@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void cancel_bus_ticket(); //
+void cancel_bus_ticket(); // write comments where // is written
 
 int main()
 {
@@ -29,7 +29,7 @@ void cancel_bus_ticket() //
             while (1)
             {
                 printf("\nEnter Seats you want to Cancel ");
-                if (scanf("%d", &cancel) != 1)
+                if (scanf("%d", &cancel) != 1)  
                 {
                     while (getchar() != '\n')
                         ;
@@ -46,7 +46,7 @@ void cancel_bus_ticket() //
                     printf("\nYour Bus Number:%d ", number);
                     printf("\nYou Canceled Tickets:%d ", cancel);
                     printf("\nTotal Number Of Seats Remaining %d ", booked - cancel);
-                    break;
+                    break; //
                 }
                 else if (number == 102)
                 {
