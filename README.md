@@ -16,6 +16,13 @@ To develope a Bus reservation system using concepts of C Programming, it has fea
 2. book_bus_ticket()  
 3. cancel_bus_ticket()  
 4. check_bus_status()  
-5. logout()
+5. logout_account()
 6. login_account()
 7. bus_reservation_sys()
+
+
+## Screenshots  
+
+# 1 Login  
+
+
