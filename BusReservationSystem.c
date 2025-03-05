@@ -41,16 +41,13 @@ void bus_reservation_sys()
 
     while (1)
     {
-        exit_variable = 0;
         user_menu();
         printf("\nEnter User menu task no: ");
         if (scanf("%d", &option) != 1 || option < 1 || option > 4)
         {
-            while (getchar() != '\n')
-                ;
+            while (getchar() != '\n');
             continue;
         }
-
         if (option == 1)
         {
             book_bus_ticket(busnumber, seatbook, buses, alreadybooked);
@@ -66,15 +63,8 @@ void bus_reservation_sys()
         else if (option == 4)
         {
             login_account(username, password);
-            if (exit_variable == 1) 
-            {
-                break;
-            }
+            break;
         }
-    }
-    if (exit_variable == 1)
-    {
-        return;
     }
 }
 
