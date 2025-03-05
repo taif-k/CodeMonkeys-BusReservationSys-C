@@ -3,7 +3,6 @@
 
 void bus_reservation_sys();
 void user_menu();
-void sign_up(char uname[10], char password[10]);
 void menu();
 void login_account(char username[10], char password[10]);
 void book_bus_ticket(int busnumb, int seatbooked, int bus[5][2], int alreadybooked[5]);
