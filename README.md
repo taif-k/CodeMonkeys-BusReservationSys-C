@@ -21,8 +21,3 @@ To develope a Bus reservation system using concepts of C Programming, it has fea
 7. bus_reservation_sys()
 
 
-## Screenshots  
-
-# 1 Login  
-
-
