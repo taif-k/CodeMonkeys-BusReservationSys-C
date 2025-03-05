@@ -39,9 +39,9 @@ void bus_reservation_sys()
         return;
     }
 
-    do // do-while to handle tasks after login
+    while (1)
     {
-
+        exit_variable = 0;
         user_menu();
         printf("\nEnter User menu task no: ");
         if (scanf("%d", &option) != 1 || option < 1 || option > 4)
@@ -66,9 +66,16 @@ void bus_reservation_sys()
         else if (option == 4)
         {
             login_account(username, password);
+            if (exit_variable == 1) 
+            {
+                break;
+            }
         }
-
-    } while (count == 0);
+    }
+    if (exit_variable == 1)
+    {
+        return;
+    }
 }
 
 void login_account(char username[10], char password[10])
