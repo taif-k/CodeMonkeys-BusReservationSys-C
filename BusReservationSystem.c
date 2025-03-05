@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-//  Currently working //
+
 void bus_reservation_sys();
 void user_menu();
 void sign_up(char uname[10], char password[10]);
