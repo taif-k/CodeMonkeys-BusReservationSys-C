@@ -2,10 +2,10 @@
 
 void logout_account(); //Declaration
 
-int main()
+int main() // system defined function
 {
    
-    logout_account();
+    logout_account(); // calling
     return 0;
 }
 
