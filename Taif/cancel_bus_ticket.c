@@ -32,7 +32,7 @@ void cancel_bus_ticket(int booked[5])
         for (int i = 0; i < 5; i++)
         {
 
-            if (busnumber == buses[i][0]) // if input bus number matches from array bus number
+            if (busnumber == buses[i][0]) // if input bus number matches from array bus number 
             {
                 match = i; // match is updated as the i changes
                 break;
