@@ -28,10 +28,10 @@ void book_bus_ticket() // user-defined function
 
         int match = -1;
 
-        for (int i = 0; i < 5; i++) 
+        for (int i = 0; i < 5; i++)
         {
 
-            if (busnumber == buses[i][0]) 
+            if (busnumber == buses[i][0])
             {
                 match = i;
                 break;
@@ -52,7 +52,7 @@ void book_bus_ticket() // user-defined function
 
                 if (seatbook <= 0) // If seat number is entered in negative, rest if-else are skipped and while loop keeps on running
                 {
-                    printf("Seats cannot be Negative");
+                    printf("Seats cannot be Negative or zero");
                     continue;
                 }
 
@@ -61,7 +61,7 @@ void book_bus_ticket() // user-defined function
                     printf("\nTotal Seats %d", buses[match][1]);
                     buses[match][1] = buses[match][1] - seatbook;
                     printf("\nSeats Booked %d", seatbook);
-                    printf("\nSeatleft %d", buses[match][1]);
+                    printf("\nSeats left %d", buses[match][1]);
                     break;
                 }
                 else
