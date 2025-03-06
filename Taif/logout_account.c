@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void logout_account(int opt); 
+void login();
 
 int main()
 {
@@ -23,6 +24,7 @@ void logout_account(int opt)
 
         if (opt == 1)
         {
+            login();
             break;
         }
         else
@@ -30,4 +32,9 @@ void logout_account(int opt)
             printf("\nPlease select valid option to logout");
         }
     }
+}
+
+void login()
+{
+    printf("\n1- Login");
 }
