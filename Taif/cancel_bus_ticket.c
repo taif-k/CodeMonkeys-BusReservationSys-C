@@ -51,9 +51,9 @@ void cancel_bus_ticket(int booked[5])
                     continue;
                 } // 2
 
-                if (seatcancel < 0)
+                if (seatcancel <= 0)
                 {
-                    printf("\nSeats cannot be negative ");
+                    printf("\nSeats cannot be negative or Zero");
                     continue;
                 }
 
