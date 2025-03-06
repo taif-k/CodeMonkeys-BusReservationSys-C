@@ -1,18 +1,18 @@
 #include <stdio.h>
 
-void check_bus_status(int book[5]);
+void check_bus_details(int book[5]);
 void busnumbers();
 
 int main()
 {
-    int booked[5] = {0, 0, 0, 0, 0};
+    int already_booked[5] = {5, 6, 7, 8, 9};
 
     busnumbers();
-    check_bus_status(booked);
+    check_bus_details(already_booked);
     return 0;
 }
 
-void check_bus_status(int book[5])
+void check_bus_details(int book[5])
 {
     while (1)
     {
@@ -46,10 +46,10 @@ void check_bus_status(int book[5])
             printf("\n Source           :       %s", sourcecity[match]);
             printf("\n Destination      :       %s", destinationcity[match]);
             printf("\n Total Seats      :       %d", buses[match][1]);
-            printf("\n Available Seats  :       %d", buses[match][1] - book[match] - 2); // test thats why -2..updating in main file 
+            printf("\n Available Seats  :       %d",  buses[match][1] - book[match]); 
             printf("\n Fare             :       %d", fare[match]);
-
             book[match] = book[match] + 1;
+            break;
         }
     }
 }
