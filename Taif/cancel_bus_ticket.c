@@ -1,23 +1,23 @@
-#include <stdio.h> 
+#include <stdio.h>
 
-void cancel_bus_ticket(); 
-void busnumbers();       
+void cancel_bus_ticket();
+void busnumbers(int booked[5]);
 
-int main() 
+int main()
 {
-    int alreadybooked[5] = {0, 0, 0, 0, 0};
+    int alreadybooked[5] = {2, 4, 6, 8, 10};
 
-    cancel_bus_ticket(alreadybooked); 
+    cancel_bus_ticket(alreadybooked);
     return 0;
 }
 
-void cancel_bus_ticket(int booked[5]) 
+void cancel_bus_ticket(int booked[5])
 {
     int busnumber = 0;
     int seatcancel = 0;
     int buses[5][2] = {{101, 50}, {102, 60}, {103, 70}, {104, 80}, {105, 90}};
 
-    busnumbers(); // calling bus chart
+    busnumbers(booked); // calling bus chart
     while (1)
     {
         printf("\n\nEnter valid Bus number: ");
@@ -32,7 +32,7 @@ void cancel_bus_ticket(int booked[5])
         for (int i = 0; i < 5; i++)
         {
 
-            if (busnumber == buses[i][0]) // if input bus number matches from array bus number
+            if (busnumber == buses[i][0]) // if input bus number matches from array bus number 
             {
                 match = i; // match is updated as the i changes
                 break;
@@ -57,17 +57,17 @@ void cancel_bus_ticket(int booked[5])
                     continue;
                 }
 
-                if (seatcancel <= booked[match]) 
+                if (seatcancel <= booked[match])  // 1 <= 2
                 {
+                    // printf("\nTotal seats: %d",buses[match][1]);
                     booked[match] = booked[match] - seatcancel;
-                    buses[match][1] = buses[match][1] + seatcancel;
                     printf("\nSeats Cancelled: %d", seatcancel);
-                    printf("\nSeats Available: %d", buses[match][1]);
+                    printf("\nSeats Available: %d", buses[match][1] - booked[match]);
                     break;
                 }
                 else
                 {
-                    printf("\nEnter 0 seats to cancel, Total seats %d", buses[match][1]);
+                    printf("\nCancelling seats greater than Booked seats");
                 }
             }
             break;
@@ -80,12 +80,11 @@ void cancel_bus_ticket(int booked[5])
     }
 }
 
-void busnumbers()
+void busnumbers(int booked[5])
 {
     int buses[5][2] = {{101, 50}, {102, 60}, {103, 70}, {104, 80}, {105, 90}}; // {bus number, total seats}
     for (int i = 0; i < 5; i++)
     {
-        printf("\nBus Number %d : Total Seats %d", buses[i][0], buses[i][1]);
+        printf("\nBus Number %d : Total Seats %d : Booked seats %d", buses[i][0], buses[i][1], booked[i]);
     }
-    printf("\n\nPlease enter 0 seats to cancel because nothing is booked yet");
 }
