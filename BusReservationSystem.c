@@ -13,7 +13,7 @@ int exit_variable = 0;
 int main()
 {
     printf("\n------------------------Bus Reservation System------------------------");
-    bus_reservation_sys(); // bus rservation system
+    bus_reservation_sys(); // bus reservation system
     return 0;
 }
 
