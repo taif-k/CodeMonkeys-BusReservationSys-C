@@ -59,7 +59,7 @@ void cancel_bus_ticket(int booked[5])
 
                 if (seatcancel <= booked[match])  // 1 <= 2
                 {
-                    // printf("\nTotal seats: %d",buses[match][1]);
+                    
                     booked[match] = booked[match] - seatcancel;
                     printf("\nSeats Cancelled: %d", seatcancel);
                     printf("\nSeats Available: %d", buses[match][1] - booked[match]);
