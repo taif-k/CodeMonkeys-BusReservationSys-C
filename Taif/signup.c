@@ -1,4 +1,17 @@
-void sign_up(char uname[10], char pword[10])
+#include <stdio.h>
+#include <string.h>
+
+void signup(char uname[10], char pword[10]);
+
+int main()
+{
+    char username[10];
+    char password[10];
+    signup(username, password);
+    return 0;
+}
+
+void signup(char uname[10], char pword[10])
 {
     while (1)
     {
@@ -35,7 +48,7 @@ void sign_up(char uname[10], char pword[10])
                 while (1)
                 {
                     printf("Enter password: ");
-                    scanf("%s", &pword[0]);
+                    scanf("%s", &pword[0]);  
                     int length = strlen(pword);
 
                     if (length >= 6) // re-ask for password if length is not equal or more than 6
