@@ -1,17 +1,17 @@
-#include <stdio.h> //Header file
+#include <stdio.h> 
 
-void cancel_bus_ticket(); // Declaration
-void busnumbers();        // bus chart
+void cancel_bus_ticket(); 
+void busnumbers();       
 
-int main() // system defined fucntion
+int main() 
 {
     int alreadybooked[5] = {0, 0, 0, 0, 0};
 
-    cancel_bus_ticket(alreadybooked); // calling
+    cancel_bus_ticket(alreadybooked); 
     return 0;
 }
 
-void cancel_bus_ticket(int booked[5]) // defination
+void cancel_bus_ticket(int booked[5]) 
 {
     int busnumber = 0;
     int seatcancel = 0;
@@ -57,7 +57,7 @@ void cancel_bus_ticket(int booked[5]) // defination
                     continue;
                 }
 
-                if (seatcancel <= booked[match]) // cancelled seats are compared with booked seats
+                if (seatcancel <= booked[match]) 
                 {
                     booked[match] = booked[match] - seatcancel;
                     buses[match][1] = buses[match][1] + seatcancel;

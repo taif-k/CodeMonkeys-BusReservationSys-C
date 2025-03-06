@@ -28,10 +28,10 @@ void book_bus_ticket() // user-defined function
 
         int match = -1;
 
-        for (int i = 0; i < 5; i++) //  loop over buses[][] to get bus number
+        for (int i = 0; i < 5; i++) 
         {
 
-            if (busnumber == buses[i][0]) // buses[i][0] bus number is accessed through indexes
+            if (busnumber == buses[i][0]) 
             {
                 match = i;
                 break;
