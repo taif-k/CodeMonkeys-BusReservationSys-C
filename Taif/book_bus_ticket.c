@@ -71,6 +71,10 @@ void book_bus_ticket() // user-defined function
             }
             break;
         }
+        else
+        {
+            printf("\n Invalid Bus Number ");
+        }
     }
 }
 
