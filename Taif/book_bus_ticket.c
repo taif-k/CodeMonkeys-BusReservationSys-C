@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 void book_bus_ticket(); // Decalartion
-void busnumbers();
+void busdetails();
 
 int main()
 {
-    busnumbers(); // calling
+    busdetails(); // calling
     book_bus_ticket();
     return 0;
 }
@@ -78,7 +78,7 @@ void book_bus_ticket() // user-defined function
     }
 }
 
-void busnumbers()
+void busdetails()
 {
     int buses[5][2] = {{101, 50}, {102, 60}, {103, 70}, {104, 80}, {105, 90}}; // {bus number, total seats}
     for (int i = 0; i < 5; i++)
